@@ -1,0 +1,71 @@
+/* style-ar.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    direction: rtl;
+}
+
+body {
+    line-height: 1.6;
+  }
+  
+  h1, h2, h3 {
+    font-size: 1.5em;
+  }
+  
+  
+  .icons {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  
+  /* Adjust styles for navigation links */
+  .navbar {
+    text-align: right;
+  }
+  
+  /* Adjust spacing for better readability */
+  p {
+    margin-bottom: 15px;
+  }
+  
+  /* Customize the appearance of form elements for RTL */
+  form {
+    direction: rtl;
+  }
+  
+  /* Additional adjustments based on my specific design and content */
+  
+  /* For responsive design, consider media queries */
+  @media screen and (max-width: 600px) {
+    /* Add specific styles for smaller screens */
+    body {
+      font-size: 14px;
+    }
+  
+  }
+  /* style.css */
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #f0f0f0;
+}
+
+button {
+    margin: 5px;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+
+  

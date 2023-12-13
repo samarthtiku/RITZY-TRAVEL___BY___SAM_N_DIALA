@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('images/vid-reg.mp4') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+}
+
+.box {
+    padding: 30px;
+    width: 320px;
+    height: 400px;
+    backdrop-filter: blur(50px);
+    border-radius: 10px;
+    background: rgba(49, 49, 49, 0.8);
+    border: 1px solid rgba(255, 255, 255, .5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center the content vertically */
+    gap: 20px;
+}
+
+.box .form {
+    width: 100%;
+}
+
+.box .form h2 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.box .form form {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.box .form form .inputbox {
+    position: relative;
+}
+
+.box .form form .inputbox input {
+    padding: 15px; /* Adjusted padding for better readability */
+    border: none;
+    outline: none;
+    background: none;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+    width: 100%;
+    transition: border-bottom-color 0.5s, padding 0.5s; 
+}
+.box .form form .inputbox input:focus {
+    border-bottom-color: #0cc0df; /* Change border color on focus */
+    padding: 20px; /* Increase padding on focus */
+}
+
+.box .form form .inputbox span {
+    position: absolute;
+    top: 25%;
+    transform: translateY(-50%);
+    left: 10px;
+    color: #fff;
+    pointer-events: none;
+    transition: .10s;
+}
+
+.box .form form .inputbox input:focus + span,
+.box .form form .inputbox input:valid + span {
+    transform: translateY(-80%);
+    font-size: 12px;
+    color: #0cc0df;
+}
+
+.box .form form .sub {
+    padding: 10px 20px;
+    color: #fff;
+    border: none;
+    outline: none;
+    background: #0cc0df;
+    cursor: pointer;
+    font-size: 16px;
+    align-self: center;
+}
+
+/* Specific styles for the registration page */
+#background-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
+
+#registrationSuccess {
+    display: none;
+    color: green;
+    text-align: center; /* Center the success message */
+    margin-top: 10px; /* Add some top margin for spacing */
+}

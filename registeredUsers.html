@@ -1,0 +1,124 @@
+<!-- registeredUsers.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registered Users</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        #userList {
+            list-style-type: none;
+            padding: 0;
+            width: 100%;
+        }
+
+        .user-item {
+            position: relative;
+            background-color: #fff;
+            margin: 5px;
+            padding: 10px;
+            border-radius: 4px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .user-item:hover {
+            transform: translateX(20px);
+        }
+
+        .user-text {
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <h2>Registered Users</h2>
+    <ul id="userList"></ul>
+
+
+    <script>
+        // Retrieve registrations from local storage
+        var existingData = localStorage.getItem('registrations');
+        var registrations = existingData ? JSON.parse(existingData) : [];
+
+        // Retrieve the email parameter from the URL
+        var urlParams = new URLSearchParams(window.location.search);
+        var email = urlParams.get('email');
+
+
+        // Sort registrations alphabetically by email
+        registrations.sort((a, b) => a.email.localeCompare(b.email));
+
+        // Display the registrations in the userList element
+        var userListElement = document.getElementById('userList');
+        registrations.forEach(function (registration) {
+            var listItem = document.createElement('li');
+            listItem.classList.add('user-item');
+            
+            
+
+            var userText = document.createElement('div');
+            userText.classList.add('user-text');
+            userText.textContent = `Email: ${registration.email}, Password: *****`; // Mask the password
+
+            listItem.appendChild(userText);
+            
+            userListElement.appendChild(listItem);
+        });
+
+        
+        // Function to update the UI with the current registrations
+        function updateUI() {
+            // Clear the displayed user list
+            userListElement.innerHTML = '';
+
+            // Display the updated registrations in the userList element
+            registrations.forEach(function (registration) {
+                var listItem = document.createElement('li');
+                listItem.classList.add('user-item');
+                
+               
+
+                var userText = document.createElement('div');
+                userText.classList.add('user-text');
+                userText.textContent = `Email: ${registration.email}, Password: *****`; // Mask the password
+
+                listItem.appendChild(userText);
+                
+                userListElement.appendChild(listItem);
+            });
+        }
+//show registed user
+        function showRegisteredUsers() {
+    // Get the logged-in email
+    var email = document.getElementById('email').value;
+
+    // Construct the URL with the email parameter
+    var url = 'registeredUsers.html?email=' + encodeURIComponent(email);
+
+    // Navigate to the registeredUsers.html page with the email parameter
+    window.location.href = url;
+}
+
+    </script>
+</body>
+</html>

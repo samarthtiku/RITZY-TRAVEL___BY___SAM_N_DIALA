@@ -1,0 +1,166 @@
+/* Accessibility Widget Styles */
+
+.accessibility-widget {
+    position: fixed;
+    bottom: 5vw;
+    right: 5vw;
+    transition: bottom 0.3s, right 0.3s;
+}
+
+.circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff; /* Change to your desired blue color */
+    transition: background-color 0.3s;
+    position: relative;
+}
+
+.circle img {
+    width: 70%; /* Adjust the size of the image as needed */
+    height: auto;
+    display: block;
+}
+
+.circle:hover {
+    background-color: #0056b3; /* Change to your desired hover color */
+}
+
+/* High Contrast Mode Styles */
+
+.high-contrast {
+    background-color: #fff !important;
+    color: #000 !important;
+}
+
+/* Responsive Styling */
+@media only screen and (max-width: 600px) {
+    .accessibility-widget {
+        bottom: 5vh;
+        right: 5vh;
+    }
+
+    .circle {
+        width: 30px;
+        height: 30px;
+    }
+
+    .circle img {
+        width: 60%; /* Adjust the size of the image as needed */
+    }
+}
+
+/* Accessibility Options Styles */
+.accessibility-options {
+    display: none;
+    position: absolute;
+    bottom: 40px;
+    right: 50%;
+    transform: translateX(50%);
+    overflow: hidden;
+    z-index: 1;
+    transition: bottom 0.3s, right 0.3s;
+}
+
+.accessibility-options.show-options {
+    display: block;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.option img {
+    width: 30px; /* Adjust the size of the icon image as needed */
+    height: auto;
+    margin-right: 10px;
+}
+
+.option:hover {
+    background-color: #f2f2f2;
+}
+
+
+
+.options-container {
+    position: fixed;
+    top: 5vw;
+    left: -150px; /* Adjust the left position */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000;
+    transform-origin: top right;
+    transform: scale(1, 0.5);
+    transition: transform 0.3s ease-in-out;
+}
+
+.options-container.active {
+    transform: scale(1, 1);
+}
+
+.option {
+    width: 150px;
+    height: 60px;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    display: flex;
+    align-items: center;
+    padding-right: 20px;
+    background-color: #007bff;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.option:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+.option img {
+    width: 40px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.option span {
+    color: #fff;
+    font-size: 18px;
+}
+
+/* Responsive Styling */
+@media only screen and (max-width: 600px) {
+    .options-container {
+        top: 5vh;
+        left: -10px;
+    }
+
+    .option {
+        width: 120px;
+        height: 50px;
+    }
+
+    .option img {
+        width: 30px;
+    }
+
+    .option span {
+        font-size: 16px;
+    }
+}
+
+
+
+
+

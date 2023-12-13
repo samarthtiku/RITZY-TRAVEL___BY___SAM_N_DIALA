@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+
+    <!-- Include Delighters.js from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/delighters@1.0.0/dist/delighters.min.js"></script>
+
+    <style>
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Preloader HTML -->
+<div id="preloader">
+    <!-- Loading image -->
+    <div class="preloader"><a href="index.html"><img src ="images/preload.gif"></a>
+    
+</div>
+
+<!-- Your other content goes here -->
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("DOM content loaded");
+
+    // Initialize Delighters.js after the content is fully loaded
+    delighters.init();
+
+    // Get logo and preloader elements
+    var logoClick = document.getElementById("logo-click");
+    var preloader = document.getElementById("preloader");
+
+    // Add click event to the logo
+    logoClick.addEventListener("click", function() {
+        console.log("Logo clicked");
+
+        // Show the preloader
+        preloader.style.display = "flex";
+
+        // Simulate loading delay (adjust as needed)
+        setTimeout(function() {
+            console.log("Loading delay completed");
+
+            // Hide the preloader after the delay
+            preloader.style.display = "none";
+
+            // Redirect to index.html
+            window.location.href = "index.html";
+        }, 2000); // 2000 milliseconds (2 seconds) delay in this example
+    });
+});
+</script>
+
+</body>
+</html>

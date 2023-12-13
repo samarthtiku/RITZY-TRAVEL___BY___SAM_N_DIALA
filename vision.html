@@ -1,0 +1,129 @@
+<!-- vision.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision Accessibility Feature</title>
+    <!-- Link your vision-specific styles if needed -->
+    <link rel="stylesheet" href="accessibility.css">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        header {
+            background-color: #333333; /* Grey color */
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        h1, h2, h3 {
+            color: #ffcc00; /* Yellow color */
+            transition: font-size 0.3s ease-in-out;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .magnifier {
+            font-size: 24px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+            user-select: none;
+        }
+
+        .magnifier:hover {
+            transform: scale(1.2);
+        }
+
+        footer {
+            background-color: #333333; /* Grey color */
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Add class for zoom effect */
+        .zoomed h1, .zoomed h2, .zoomed h3 {
+            font-size: 1.5em; /* Adjust the font size for zoomed effect */
+        }
+
+        /* Style for the plus sign */
+        .plus-sign {
+            font-size: 20px;
+            margin-left: 5px;
+        }
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const magnifier = document.querySelector('.magnifier');
+
+            if (magnifier) {
+                magnifier.addEventListener('click', function () {
+                    // Toggle between zoom in and zoom out
+                    document.body.classList.toggle('zoomed');
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+
+    <header>
+        <h1>Vision Accessibility Feature</h1>
+    </header>
+
+    <section>
+        <h2>Magnifiers and Visual Aids</h2>
+        <p>
+            Our vision accessibility feature includes magnifiers and visual aids to enhance your browsing experience.
+        </p>
+
+        <h3>Key Features:</h3>
+        <ul>
+            <li><strong>Magnification:</strong> Zoom in on text and images for better visibility.</li>
+            <li><strong>Contrast Adjustment:</strong> Customize the color contrast to suit your preferences.</li>
+            <li><strong>Highlighting:</strong> Highlight important elements on the page.</li>
+            <!-- Add more features based on your implementation -->
+        </ul>
+
+        <h3>How to Use Magnifiers:</h3>
+        <p>
+            To use magnifiers, simply click on the "Vision" option in our accessibility widget, and the magnification
+            tools will be activated. You can then adjust settings based on your needs.
+        </p>
+        <!-- Magnifier element -->
+        <div class="magnifier">&#128269;<span class="plus-sign">+</span></div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Your Website. All rights reserved By Sam & Diala</p>
+    </footer>
+
+</body>
+</html>

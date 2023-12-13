@@ -1,0 +1,86 @@
+<script>
+
+  // Handle real-time validation errors from the card Element
+  card.addEventListener('change', function(event) {
+    var displayError = document.getElementById('card-errors');
+    if (event.error) {
+      displayError.textContent = event.error.message;
+    } else {
+      displayError.textContent = '';
+    }
+  });
+
+  // Handle form submission
+  var form = document.getElementById('payment-form');
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Disable the submit button to prevent multiple submissions
+    document.getElementById('submit-button').disabled = true;
+
+    // Create a payment method using the card Element and other form elements
+    stripe.createPaymentMethod({
+      type: 'card',
+      card: card,
+      billing_details: {
+        name: document.getElementById('name-on-card').value,
+        email: document.getElementById('email').value,
+      },
+    }).then(function(result) {
+      if (result.error) {
+        // Show error to the user
+        var errorElement = document.getElementById('card-errors');
+        errorElement.textContent = result.error.message;
+
+        // Enable the submit button
+        document.getElementById('submit-button').disabled = false;
+      } else {
+        // Send the PaymentMethod ID to your server to handle the payment
+        fetch('/create-payment', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ payment_method_id: result.paymentMethod.id }),
+        }).then(function(result) {
+          return result.json();
+        }).then(function(response) {
+          handleServerResponse(response);
+        });
+      }
+    });
+  });
+
+  // Handle the server response
+  function handleServerResponse(response) {
+    if (response.error) {
+      // Show error to the user
+      var errorElement = document.getElementById('card-errors');
+      errorElement.textContent = response.error;
+
+      // Enable the submit button
+      document.getElementById('submit-button').disabled = false;
+    } else {
+      // The payment was processed successfully
+      alert('Payment successful!');
+    }
+  }
+</script>
+
+<script>
+  var stripe = Stripe('ryb0-xxjm-orpq-fceq-Krtb');
+  var elements = stripe.elements();
+
+  // Create an instance of the card Element.
+  var card = elements.create('card');
+
+  // Add an instance of the card Element into the `card-element` div.
+  card.mount('#card-element');
+</script>
+<script>
+  function togglePaymentForm() {
+      const paymentForm = document.getElementById("payment-form");
+      paymentForm.style.display = paymentForm.style.display === "none" ? "block" : "none";
+  }
+</script>
+

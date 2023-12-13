@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Website</title>
+    
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        h1 {
+            margin: 20px 0;
+            font-size: 36px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #444;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 18px;
+        }
+
+        .checkout-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            max-width: 120rem;
+            margin: 20px auto;
+        }
+
+        .left-side {
+            position: relative;
+            background: url('https://images.pexels.com/photos/2876787/pexels-photo-2876787.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+            background-position: center;
+            background-size: cover;
+            height: 30rem;
+        }
+
+        .text-box {
+            background: rgba(95, 121, 134, 0.8);
+            width: 80%;
+            padding: 1rem 2rem;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 8px;
+        }
+
+        .home-heading {
+            color: #e8e8e1;
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .home-price {
+            color: #aeae97;
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .home-desc {
+            color: #e8e8e1;
+            font-size: 1rem;
+            line-height: 1.5;
+            letter-spacing: 0.5px;
+        }
+
+        .right-side {
+            background-color: #fff;
+            padding: 1.8rem 3.2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .receipt {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            border-bottom: solid 1px;
+            margin-bottom: 1rem;
+        }
+
+        .receipt-heading {
+            font-size: 1.4rem;
+            text-align: left;
+        }
+
+        .table {
+            border-collapse: separate;
+            border-spacing: 0 1rem;
+            color: #64645f;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            width: 100%;
+        }
+
+        .total td {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .price {
+            text-align: end;
+        }
+
+        .payment-heading {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-box {
+            display: grid;
+            grid-template-rows: 1fr;
+            gap: 1rem;
+        }
+
+        .form-box *:focus {
+            outline: none;
+            box-shadow: 0 0 0 0.8rem rgba(139, 139, 107, 0.5);
+            border-radius: 8px;
+        }
+
+        .btn {
+            background-color: #4c616b;
+            border: none;
+            border-radius: 8px;
+            color: #eff2f3;
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-top: 1rem;
+            padding: 1rem;
+            cursor: pointer;
+            align-self: center;
+        }
+
+        .btn:hover {
+            background-color: #5f7986;
+            transition: ease-out 0.1s;
+        }
+
+        .footer-text {
+            font-size: 1rem;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .btn {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1> Your Cart</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="Destinations.html">Destinations</a>
+        <a href="#">Contact Us</a>
+    </nav>
+
+    <h1>Your Travel Packages</h1>
+
+    <div class="checkout-container">
+        <div class="left-side">
+            <div class="text-box">
+                <h1 class="home-heading">Modern Home</h1>
+                <p class="home-price"><em>249.50 USD </em>/ 3 night</p>
+                <hr class="left-hr" />
+                <p class="home-desc"><em>Entire home </em>for <em>2 guest</em></p>
+                <p class="home-desc">
+                    <em>Fri, December 1st, 2023 </em>to <em>Mon, December 4th, 2023</em>
+                </p>
+            </div>
+        </div>
+
+        <div class="right-side">
+            <div class="receipt">
+                <h2 class="receipt-heading">Receipt Summary</h2>
+                <div>
+                    <table class="table">
+                        <tr>
+                            <td>249.50 x 2 nights</td>
+                            <td class="price">499.00 USD</td>
+                        </tr>
+                        <tr>
+                            <td>Discount</td>
+                            <td class="price">0.00 USD</td>
+                        </tr>
+                        <tr>
+                            <td>Subtotal</td>
+                            <td class="price">499.00 USD</td>
+                        </tr>
+                        <tr>
+                            <td>Tax</td>
+                            <td class="price">47.41 USD</td>
+                        </tr>
+                        <tr class="total">
+                            <td>Total</td>
+                            <td class="price">546.41 USD</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            
+            <div class="form-box">
+                <!-- Your payment form elements go here -->
+            </div>
+            <button class="btn" onclick="checkout()">Book Now</button>
+        </div>
+    </div>
+
+    <script>
+        function checkout() {
+            // Redirect to the payment.html
+            window.location.href = 'payment.html';
+        }
+    </script>
+</body>
+</html>

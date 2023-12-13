@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Example</title>
+    <style>
+        /* Add some basic styling for demonstration purposes */
+        #itemList li {
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Search Example</h1>
+
+    <input type="text" id="searchInput" placeholder="Search items">
+
+    <ul id="itemList">
+        <li>Mumbai</li>
+        <li>Hawaii</li>
+        <li>Paris</li>
+        <li>tokyo</li>
+        <li>eygpt</li>
+    </ul>
+
+    <script>
+        // JavaScript code for search functionality
+        var searchInput = document.getElementById('searchInput');
+        var itemList = document.getElementById('itemList');
+
+        searchInput.addEventListener('input', function () {
+            var searchTerm = searchInput.value.toLowerCase();
+
+            Array.from(itemList.children).forEach(function (item) {
+                var itemName = item.textContent.toLowerCase();
+
+                if (itemName.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
